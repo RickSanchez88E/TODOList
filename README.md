@@ -5,10 +5,15 @@
 ### Install APP
 ```pip3 install -r requirements```
 
-#### Run Django Server
-```python manage.py runserver```
+### Acivate Virtual Environment
+```virtualenv venv```
 
-#### Migrate Database 
-```python manage.py makemigrations```
+```source venv/bin/activate```
 
-``python manage.py migrate``
+### Run Django Server
+```python3 manage.py runserver```
+
+### Migrate Database 
+```python3 manage.py makemigrations```
+
+``python3 manage.py migrate``
