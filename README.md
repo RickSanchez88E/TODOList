@@ -27,7 +27,7 @@ docker scout quickview
 ```
 ---
 
-### For Linux (ubuntu):
+### For Linux (Ubuntu):
 #### 安装Docker请前往: [Docker官网](https://docs.docker.com/engine/install/ubuntu/)
 
 ```bash
