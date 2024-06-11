@@ -5,7 +5,7 @@
 ### Install APP
 ```pip3 install -r requirements```
 
-### Acivate Virtual Environment
+### Activate Virtual Environment
 ```virtualenv venv```
 
 ```source venv/bin/activate```
