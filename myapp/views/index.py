@@ -1,4 +1,4 @@
-# index.py
+# myapp/views/index.py
 from django.shortcuts import render
 
 

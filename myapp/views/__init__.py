@@ -1,1 +1,2 @@
-from index import *
+# myapp/views/__init__.py
+from .index import index
