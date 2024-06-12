@@ -28,3 +28,4 @@ setuptools==69.1.1
 six==1.16.0
 sqlparse==0.4.4
 urllib3==1.26.18
+django-pipline==3.1.0

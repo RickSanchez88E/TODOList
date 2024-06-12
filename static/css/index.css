@@ -1,0 +1,58 @@
+.media-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.media-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.media-button {
+    background: #007bff;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 5px;
+}
+
+.media-button:hover {
+    background: #0056b3;
+}
+
+.button-icons {
+    font-size: 1.5em;
+}
+
+.media-progress {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.progress-bar-wrapper {
+    flex-grow: 1;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #007bff;
+    width: 0;
+    transition: width 0.2s;
+}
+
+.progress-time-current,
+.progress-time-total {
+    font-size: 1em;
+}

@@ -1,18 +1,52 @@
-<!DOCTYPE html>
+{% load static %}
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet/less" type="text/css" href="{% static '/css/index.less' %}">
+    <link rel="stylesheet/less" type="text/css" href="{% static '/css/index.less' %}">
+    <script src="https://cdn.jsdelivr.net/npm/less" ></script>
+    <script src="{% static '/js/index.js' %}"></script>
 </head>
 <body>
+<div id="media-control-panel" class="media-controls">
+  <audio id="audio-player" src="/media/seeYouAgain.mp3"></audio>
 
-<p>This is index page</p>
-<audio controls>
-    <source src="../media/seeYouAgain.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
+  <div class="media-buttons">
+    <button class="back-button media-button" label="back">
+      <i class="fas fa-step-backward button-icons"></i>
+      <span class="button-text milli">Back</span>
+    </button>
+    <button class="rewind-button media-button" label="rewind">
+      <i class="fas fa-backward button-icons"></i>
+      <span class="button-text milli">Rewind</span>
+    </button>
+    <button class="play-button media-button" label="play">
+      <i class="fas fa-play button-icons delta"></i>
+      <span class="button-text milli">Play</span>
+    </button>
+    <button class="fast-forward-button media-button" label="fast forward">
+      <i class="fas fa-forward button-icons"></i>
+      <span class="button-text milli">Forward</span>
+    </button>
+    <button class="skip-button media-button" label="skip">
+      <i class="fas fa-step-forward button-icons"></i>
+      <span class="button-text milli">Skip</span>
+    </button>
+  </div>
+  <div class="media-progress">
+    <div class="progress-bar-wrapper progress">
+      <div class="progress-bar"></div>
+    </div>
+    <div class="progress-time-current milli">00:00</div>
+    <div class="progress-time-total milli">34:40</div>
+  </div>
+</div>
+
 </body>
-
-<script src="../node_modules/howler/dist/howler.js"></script>
-
 </html>

@@ -1,0 +1,11 @@
+.body{
+    border-radius: 20px;
+    overflow: hidden;
+    background: #00cc66;
+}
+
+.html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
