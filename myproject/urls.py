@@ -17,7 +17,7 @@ Including another URLconf
 # myproject/urls.py
 from django.contrib import admin
 from django.urls import path
-from myapp.views import index, home
+from myapp.views import index, home, play_song
 from myproject import settings
 from django.conf.urls.static import static
 
@@ -25,7 +25,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', index, name='index'),
+    path('index/<str:song_name>', play_song, name='play_song'),
     path('', home, name='home'),
+
 ]
 
 if settings.DEBUG:

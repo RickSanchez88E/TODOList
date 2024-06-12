@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 
 from django.template.context_processors import media
+from google.oauth2 import service_account
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
-    'pipeline',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +53,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-STATICFILES_STORAGE = 'pipeline.storage.PipelineManifestStorage'
 
 
 ROOT_URLCONF = 'myproject.urls'
@@ -121,26 +120,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # Other finders...
-    'pipeline.finders.PipelineFinder',
-]
-PIPELINE = {
-    'PIPELINE_ENABLED': True,
-    'CSS_COMPRESSOR': None,
-    'STYLESHEETS': {
-        'style': {
-            'source_filenames': ['path/to/your/style.less'],
-            'output_filename': 'css/style.css',
-            'extra_context': {
-                'media': 'screen,projection',
-            },
-        },
-    },
-}
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -153,3 +132,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# settings.py
+
+GOOGLE_APPLICATION_CREDENTIALS = 'top-script-417701-71a594897872.json'
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_BUCKET_NAME = 'audiofile_sanchez'

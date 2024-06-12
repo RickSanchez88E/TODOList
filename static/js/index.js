@@ -63,3 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     }
 });
+
+
+function setSong(songName) {
+            document.getElementById('selectedSong').value = songName;
+            let songUrl = "{% url 'play_song' 'song_name_placeholder' %}".replace('song_name_placeholder', songName);
+            document.getElementById('audioSource').src = songUrl;
+            document.getElementById('audioPlayer').load();
+        }
