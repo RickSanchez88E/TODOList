@@ -17,7 +17,7 @@ Including another URLconf
 # myproject/urls.py
 from django.contrib import admin
 from django.urls import path
-from myapp.views import index, home, play_song
+from myapp.views import *
 from myproject import settings
 from django.conf.urls.static import static
 
@@ -27,6 +27,8 @@ urlpatterns = [
     path('index/', index, name='index'),
     path('index/<str:song_name>', play_song, name='play_song'),
     path('', home, name='home'),
+    path('contact/', contact_view, name='contact'),
+    path('success/', lambda request: render(request, 'success.html'), name='success'),
 
 ]
 

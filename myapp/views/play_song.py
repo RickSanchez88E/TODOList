@@ -3,14 +3,13 @@ from google.cloud import storage
 
 
 def play_song(request, song_name):
-    # Replace with your actual bucket name
     bucket_name = 'audiofile_sanchez'
 
     # Connect to Google Cloud Storage
     client = storage.Client()
     bucket = client.bucket(bucket_name)
 
-    # Get the blob (file) from the bucket
+    # Get the blob (数据库的大对象) from the bucket
     blob = bucket.blob(song_name)
 
     # Check if the file exists
