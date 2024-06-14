@@ -8,26 +8,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>player</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet/less" type="text/css" href="{% static '/css/index.less' %}">
+{#    <link rel="stylesheet/less" type="text/css" href="{% static '/css/index.less' %}">#}
     <link rel="stylesheet/less" type="text/css" href="{% static '/css/index.less' %}">
     <script src="https://cdn.jsdelivr.net/npm/less" ></script>
     <script src="{% static '/js/index.js' %}"></script>
 </head>
 <body>
     <ul>
-        <li><a href="{% url 'play_song' 'seeYouAgain.mp3' %}">Play Song 1</a></li>
-        <li><a href="{% url 'play_song' 'peaches.mp3' %}">Play Song 2</a></li>
-        <!-- Add more links for other songs as needed -->
+        <li><a href="https://storage.cloud.google.com/audiofile_sanchez/seeYouAgain.mp3">seeYouAgain</a></li>
+        <li><a href="https://storage.cloud.google.com/audiofile_sanchez/peaches.mp3">peaches</a></li>
     </ul>
 
     <form id="songForm" style="display: none;">
         <input type="hidden" id="selectedSong" name="song">
     </form>
 
-    <audio id="audioPlayer" controls>
-        <source id="audioSource" src="" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+{#    <audio id="audioPlayer" controls>#}
+{#        <source id="audioSource" src="{% url 'play_song' '' %}" type="audio/mpeg">#}
+{#        Your browser does not support the audio element.#}
+{#    </audio>#}
 
 
 <div id="media-control-panel" class="media-controls">
