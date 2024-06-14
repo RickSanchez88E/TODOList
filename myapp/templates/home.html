@@ -2,10 +2,15 @@
 {% extends 'base.html' %}
 {% block content %}
     {{block.super}}
+    <link rel="stylesheet" href="../../static/css/home.css">
     <meta charset="UTF-8">
     <title>Home</title>
 <body>
-    <h1>Home Page</h1>
+<blockquote>
+    One day you will left the world behind, so live a life you will remember.
+  <span>Avicii</span>
+</blockquote>
+
     <a href="{% url 'index' %}" class="btn btn-primary">click</a>
 </body>
 
