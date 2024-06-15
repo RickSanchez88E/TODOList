@@ -30,7 +30,9 @@ urlpatterns = [
     path('index/<str:song_name>', play_song, name='play_song'),
     path('', home, name='home'),
     path('contact/', contact_view, name='contact'),
+    path('delete_task/<int:task_id>', delete_task, name='delete_task'),
     path('success/', lambda request: render(request, 'success.html'), name='success'),
+
 
 ]
 
