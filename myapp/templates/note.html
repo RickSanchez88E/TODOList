@@ -1,0 +1,167 @@
+<!-- home.html -->
+{% extends 'base.html' %}
+{% block content %}
+    {{block.super}}
+    <link rel="stylesheet" href="../../static/css/home.css">
+    <meta charset="UTF-8">
+    <title>Home</title>
+<body>
+<blockquote>
+    One day you will left the world behind, so live a life you will remember.
+  <span>Avicii</span>
+</blockquote>
+    <a href="{% url 'index' %}" class="btn btn-primary">click</a>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">+</button>
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>Status</th>
+        <th>Task Name</th>
+        <th>due date</th>
+    </tr>
+
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.get_status_display }}</td>
+            <td>{{ task.task_name }}</td>
+            <td>{{ task.due_date }}</td>
+            <!-- 其他字段 -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">status:</label>
+              <div class="input-group mb-3">
+                  <select class="form-select" aria-label="Default select example">
+                    <option value="1">Done</option>
+                    <option value="2">In Progress</option>
+                    <option value="3">Not Start</option>
+                  </select>
+              </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Task Name:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+
+            <div class="mb-3">
+            <label for="message-text" class="col-form-label">due date:</label>
+            <input type="date" id="date" name="date">
+            </div>
+
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Status</th>
+            <th>Task Name</th>
+            <th>Due Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.get_status_display }}</td>
+            <td>{{ task.task_name }}</td>
+            <td>{{ task.due_date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New Task</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--start-->
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Status</th>
+            <th>Task Name</th>
+            <th>Due Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.get_status_display }}</td>
+            <td>{{ task.task_name }}</td>
+            <td>{{ task.due_date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New Task</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+
+{% endblock %}
