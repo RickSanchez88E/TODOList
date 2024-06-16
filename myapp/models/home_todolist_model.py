@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class home_todolist_model(models.Model):
     STATUS_CHOICES = {
         (1, 'Done'),
@@ -13,4 +14,3 @@ class home_todolist_model(models.Model):
 
     def __str__(self):
         return self.task_name
-    # 可以根据需要添加其他字段，如 tags, priority 等

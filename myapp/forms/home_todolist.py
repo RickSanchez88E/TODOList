@@ -3,6 +3,7 @@
 from django import forms
 from myapp.models import home_todolist_model
 
+
 class home_todolistForm(forms.ModelForm):
     class Meta:
         model = home_todolist_model
