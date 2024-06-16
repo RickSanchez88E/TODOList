@@ -28,12 +28,57 @@
             <td>{{ task.get_status_display }}</td>
             <td>{{ task.task_name }}</td>
             <td>{{ task.due_date }}</td>
+            
+            <td>
+                <!-- DELETE -->
+                    <div aria-labelledby="exampleModalLabel">
+                        <!-- ... 任务显示代码 ... -->
+                        <form action="{% url 'delete_task' task.id %}" method="post">
+                            <button TYPE="submit" class="btn btn-danger">DELETE</button>
+                            {% csrf_token %}
+                        </form>
+                    </div>
+                <!-- /DELETE -->
+            </td>
+            <td>
+                <!-- 编辑表单-->
+                <div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-{{ task.id }}">EDIT</button>
+                
+                <!-- 编辑数据表单模态窗口 -->
+                <div class="modal fade" id="editModal-{{ task.id }}" tabindex="-1" aria-labelledby="editModalLabel-{{ task.id }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- 模态窗口头部 -->
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel-{{ task.id }}">Edit Task</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <!-- 模态窗口主体 -->
+                            <div class="modal-body">
+                                <!-- 表单 -->
+                                <form action="{% url 'edit_task' task.id %}" method="post">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Update Task</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+                </div>
+                <!-- /编辑表单-->
+            </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 
-
+<!--增加数据表单-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -55,3 +100,8 @@
   </div>
 </div>
 {% endblock %}
+<!--/增加数据表单-->
+
+
+
+</body>

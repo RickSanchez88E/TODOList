@@ -31,7 +31,8 @@ urlpatterns = [
     path('', home, name='home'),
     path('contact/', contact_view, name='contact'),
     path('success/', lambda request: render(request, 'success.html'), name='success'),
-
+    path('delete/<int:task_id>/', delete_task, name='delete_task'),
+    path('edit_task/<int:task_id>/', edit_task, name='edit_task'),
 ]
 
 if settings.DEBUG:
